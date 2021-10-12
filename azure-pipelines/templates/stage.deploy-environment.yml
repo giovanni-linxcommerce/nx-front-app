@@ -17,7 +17,19 @@ stages:
             inputs:
               versionSpec: "16.x"
             displayName: "Install Node.js"
+          
+          - task: Cache@2
+            displayName: 'Cache node_modules'
+            inputs:
+              key: node_modules | $(Agent.OS) | package.json | yarn.lock
+              path: '$(System.DefaultWorkingDirectory)/node_modules'
 
+          - task: Cache@2
+            displayName: 'Cache .next/cache'
+            inputs:
+              key: next | $(Agent.OS) | package.json | yarn.lock
+              path: '$(System.DefaultWorkingDirectory)/.next/cache'
+              
           - script: npm install
             displayName: "npm ci/install"
           
