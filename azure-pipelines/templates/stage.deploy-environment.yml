@@ -18,17 +18,17 @@ stages:
               versionSpec: "16.x"
             displayName: "Install Node.js"
 
-          - script: yarn --frozen-lockfile --network-timeout=100000
-            displayName: "yarn ci/install"
+          - script: npm install
+            displayName: "npm ci/install"
           
-          - script: yarn type-check
+          - script: npm run type-check
             displayName: 'Check types'
           
-          - script: yarn build
-            displayName: "yarn build"
+          - script: npm run build
+            displayName: "npm build"
 
-          - script: yarn export
-            displayName: "yarn export"
+          - script: npm run export
+            displayName: "npm export"
 
           - task: AzureCLI@1
             displayName: "get deployment token"
