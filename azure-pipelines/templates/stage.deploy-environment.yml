@@ -15,7 +15,7 @@ stages:
         steps:
           - task: NodeTool@0
             inputs:
-              versionSpec: "14.x"
+              versionSpec: "12.x"
             displayName: "Install Node.js"
           
           - task: Cache@2
@@ -32,19 +32,15 @@ stages:
               
           - script: npm install
             displayName: "npm ci/install"
-            workingDirectory: $(directory)
           
           - script: npm run type-check
             displayName: 'Check types'
-            workingDirectory: $(directory)
           
           - script: npm run build
             displayName: "npm build"
-            workingDirectory: $(directory)
 
           - script: npm run export
             displayName: "npm export"
-            workingDirectory: $(directory)
 
           - task: AzureCLI@1
             displayName: "get deployment token"
@@ -57,6 +53,6 @@ stages:
 
           - task: AzureStaticWebApp@0
             inputs:
-              app_location: "$(directory)/out"
+              app_location: "/out"
             env:
               azure_static_web_apps_api_token: $(deployment_token)
