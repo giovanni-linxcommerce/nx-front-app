@@ -20,7 +20,10 @@ stages:
 
           - script: yarn --frozen-lockfile --network-timeout=100000
             displayName: "yarn ci/install"
-
+          
+          - script: yarn type-check
+            displayName: 'Check types'
+          
           - script: yarn build
             displayName: "yarn build"
 
