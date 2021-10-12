@@ -1,0 +1,16 @@
+pr: none
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-20.04
+
+variables:
+  - template: ./variables/common.yml
+
+stages:
+  - template: templates/stage.deploy-environment.yml
+    parameters:
+      environment: DEV

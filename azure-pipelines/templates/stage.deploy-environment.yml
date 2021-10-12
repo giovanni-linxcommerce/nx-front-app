@@ -1,0 +1,43 @@
+parameters:
+  - name: environment
+    type: string
+
+stages:
+  - stage: deploy_${{ lower(parameters.environment) }}
+
+    variables:
+    - template: ../variables/${{ lower(parameters.environment) }}.yml
+    - group: ${{ upper(parameters.environment) }}
+
+    jobs:
+      - job: publish_app
+        displayName: 'publish app'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "16.x"
+            displayName: "Install Node.js"
+
+          - script: npm ci
+            displayName: "npm ci/install"
+
+          - script: npm run build
+            displayName: "npm run build"
+
+          - script: npm run export
+            displayName: "npm run export"
+
+          - task: AzureCLI@1
+            displayName: "get deployment token"
+            inputs:
+              azureSubscription: ${{ variables.serviceConnection }}
+              scriptLocation: inlineScript
+              inlineScript: |
+                deployment_token=$(az staticwebapp secrets list --name $(STATIC_APP_NAME) --resource-group $(RESOURCE_GROUP_INFRASTRUCTURE) --query properties.apiKey -o tsv)
+                echo "##vso[task.setvariable variable=deployment_token;isSecret=true]$deployment_token"
+
+          - task: AzureStaticWebApp@0
+            inputs:
+              app_location: "$(directory)/out"
+            env:
+              azure_static_web_apps_api_token: $(deployment_token)
