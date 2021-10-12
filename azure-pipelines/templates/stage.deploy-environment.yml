@@ -32,15 +32,19 @@ stages:
               
           - script: npm install
             displayName: "npm ci/install"
+            workingDirectory: $(directory)
           
           - script: npm run type-check
             displayName: 'Check types'
+            workingDirectory: $(directory)
           
           - script: npm run build
             displayName: "npm build"
+            workingDirectory: $(directory)
 
           - script: npm run export
             displayName: "npm export"
+            workingDirectory: $(directory)
 
           - task: AzureCLI@1
             displayName: "get deployment token"
