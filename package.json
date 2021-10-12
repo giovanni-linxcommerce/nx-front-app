@@ -20,8 +20,7 @@
     "test:cov": "jest --coverage",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "lint:fix": "yarn lint -- --fix",
-    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
-    "prepare": "node ./prepare.js"
+    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
