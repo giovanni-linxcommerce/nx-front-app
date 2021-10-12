@@ -33,9 +33,6 @@ stages:
           - script: npm install
             displayName: "npm ci/install"
           
-          - script: npm run type-check
-            displayName: 'Check types'
-          
           - script: npm run build
             displayName: "npm build"
 
