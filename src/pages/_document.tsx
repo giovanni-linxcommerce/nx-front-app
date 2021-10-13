@@ -8,6 +8,7 @@ import Document, {
   NextScript,
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import { BASE_CSS_VARS_URI } from '@/styles/BaseGlobalStyle';
 
 export default class CheckoutDocument extends Document {
   static async getInitialProps(
@@ -43,9 +44,12 @@ export default class CheckoutDocument extends Document {
       <Html lang="pt">
         <Head>
           <meta charSet="utf-8" />
-
+          <link rel="dns-prefetch" href="//https://linxcheckoutdevstorage.blob.core.windows.net"/>
+          <link rel="preload" href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,700&display=optional" as="style" />
+          <link rel="preload" href={BASE_CSS_VARS_URI} as="style" />
+          
           <link
-            href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=optional"
+            href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,700&display=optional"
             rel="stylesheet"
           />
 
