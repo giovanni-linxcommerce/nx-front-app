@@ -1,5 +1,5 @@
 {
-  "name": "ns-frontapp",
+  "name": "nx-frontapp",
   "description": "Static Front app POC",
   "version": "0.1.0",
   "private": true,
@@ -13,7 +13,7 @@
     "dev": "next",
     "build": "next build",
     "start": "node server.js",
-    "export": "next export",
+    "export": "next build && next export",
     "type-check": "tsc",
     "test": "jest",
     "test:watch": "jest --watch",

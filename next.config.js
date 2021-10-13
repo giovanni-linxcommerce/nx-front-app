@@ -7,5 +7,6 @@ module.exports = {
   poweredByHeader: false,
   compress,
   assetPrefix,
+  trailingSlash: true,
   generateBuildId: async () => buildId,
 };
