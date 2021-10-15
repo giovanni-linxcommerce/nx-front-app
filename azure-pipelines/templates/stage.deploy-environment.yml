@@ -32,12 +32,9 @@ stages:
               
           - script: npm install --production=false
             displayName: "npm ci/install"
-          
-          - script: npm run build
-            displayName: "npm build"
 
           - script: npm run export
-            displayName: "npm export"
+            displayName: "build and export"
 
           - task: AzureCLI@1
             displayName: "get deployment token"

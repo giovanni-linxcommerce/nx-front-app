@@ -2,7 +2,8 @@
   "routes": [
     {
       "route": "/*",
-      "rewrite": "/[tenant]"
+      "rewrite": "/[tenant]",
+      "exclude": ["/_next/*"]
     }
   ],
   "navigationFallback": {
