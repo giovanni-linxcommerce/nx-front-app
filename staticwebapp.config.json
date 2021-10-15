@@ -2,8 +2,13 @@
   "routes": [
     {
       "route": "/*",
-      "rewrite": "/[tenant]",
-      "exclude": ["/_next/*"]
+      "rewrite": "/[tenant]/"
+    },
+    {
+      "route": "/_next/*",
+      "headers": {
+        "Cache-Control": "public, max-age=604800, immutable"
+      }
     }
   ],
   "navigationFallback": {
