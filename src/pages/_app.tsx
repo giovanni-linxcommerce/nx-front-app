@@ -8,8 +8,8 @@ import theme from '@/styles/theme';
 
 const CheckoutApp: React.FC<AppProps> = ({ Component, pageProps }) => (
   <ThemeProvider theme={theme}>
-    <Component {...pageProps} />
     <BaseGlobalStyle {...pageProps} />
+    <Component {...pageProps} />
     <GlobalStyle />
   </ThemeProvider>
 );

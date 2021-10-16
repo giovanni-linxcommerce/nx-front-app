@@ -7,11 +7,11 @@ const BaseGlobalStyle: React.FC = () => {
   const router = useRouter();
 
   const { tenant } = router.query;
-  const tenanrCssUri = `https://linxcheckoutdevstorage.blob.core.windows.net/nx-ds-files/css/${tenant}/variables.css`
+  const tenantCssUri = `https://linxcheckoutdevstorage.blob.core.windows.net/tenant-files/${tenant}/variables.css`
 
   return <>
     <link href={BASE_CSS_VARS_URI} rel="stylesheet" as="style" />
-	<link href={tenanrCssUri} rel="stylesheet" as="style" />
+	  {tenant && <link href={tenantCssUri} rel="stylesheet" as="style" />}
   </>;
 };
 
