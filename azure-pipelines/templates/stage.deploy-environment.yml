@@ -7,7 +7,7 @@ stages:
 
     variables:
     - template: ../variables/${{ lower(parameters.environment) }}.yml
-    - group: ${{ upper(parameters.environment) }}
+    - group: COMMERCE_CHECKOUT_${{ upper(parameters.environment) }}
 
     jobs:
       - job: publish_app
