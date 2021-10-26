@@ -30,7 +30,7 @@ stages:
               key: next | $(Agent.OS) | package.json | yarn.lock
               path: '$(System.DefaultWorkingDirectory)/.next/cache'
               
-          - script: npm i
+          - script: npm install --production=false
             displayName: "npm ci/install"
 
           - script: npm run export
