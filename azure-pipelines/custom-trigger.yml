@@ -1,8 +1,17 @@
 parameters:
-- name: A_Parameter
-  displayName: A parameter
+- name: TokenData
+  displayName: TokenData
   default: noValue
   type: string
+- name: Description
+  displayName: Description
+  default: noValue
+  type: string
+- name: FileKey
+  displayName: FileKey
+  default: noValue
+  type: string   
+
  
 trigger:
 - none
@@ -13,7 +22,7 @@ pool:
 steps:
  
 - script: |
-    echo '1 - using dollar sign parens, p dot A_Parameter is now: ' $(parameters.A_Parameter)
-    echo '2 - using dollar sign double curly braces, p dot A_Parameter is now::' ${{ parameters.A_Parameter }} '::'
-    echo '3 - using dollar sign and only the var name: ' $(A_Parameter)
+    echo '1 - using dollar sign parens, p dot TokenData is now: ' $(parameters.TokenData)
+    echo '2 - using dollar sign double curly braces, p dot TokenData is now::' ${{ parameters.TokenData }} '::' ${{ parameters.Description }}
+    echo '3 - using dollar sign and only the var name: ' $(TokenData)
   displayName: 'Run a multi-line script'
