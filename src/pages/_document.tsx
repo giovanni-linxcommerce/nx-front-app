@@ -49,11 +49,10 @@ export default class CheckoutDocument extends Document {
           <link rel="preload" href={BASE_CSS_VARS_URI} as="style" />
           
           <link
-            href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,700&display=optional"
+            href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=optional"
             rel="stylesheet"
           />
 
-          <link rel="icon" href="https://rocketseat.com.br/favicon.ico" />
         </Head>
         <body>
           <Main />

@@ -9,8 +9,8 @@ const Home: React.FC = () => (
       <title>Homepage</title>
     </Head>
 
-    <h1>Checkout Client App</h1>
-    <p>A ReactJS + Next.js structure.</p>
+    <h1>NX DS Front-end playground</h1>
+    <p>A ReactJS + Next.js static structure.</p>
   </Container>
 );
 

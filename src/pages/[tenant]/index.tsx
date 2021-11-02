@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
-//import themeBuilder from '@/lib/themeBuilder';
-//import { NextComponentType } from "next";
-import { Container } from '@/styles/pages/Home';
+import { Container, GradientBox } from '@/styles/pages/Home';
 
 const Tenant: React.FC<any> | null = () => {
   const router = useRouter();
@@ -22,9 +20,11 @@ const Tenant: React.FC<any> | null = () => {
   return (
     <Container>
       <header>
-        <h1 className="logo">{tenant}</h1>
+        <h1>{tenant}</h1>
         <pre>{env}</pre>
       </header>
+
+      <GradientBox />
     </Container>
   );
 };

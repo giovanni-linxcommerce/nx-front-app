@@ -8,8 +8,8 @@ export default createGlobalStyle`
   }
 
   body {
-    background: var(--color-fuschia-60);/*${(props) => props.theme.colors.background};*/
-    color: var(--color-iris-100);/*${(props) => props.theme.colors.text};*/
-    font: var(--font-header-1);
+    background: var(--color-body);/*${(props) => props.theme.colors.background};*/
+    color: var(--color-brand-stone-color-stone-primary-darkest);/*${(props) => props.theme.colors.text};*/
+    font: var( --font-font-size-font-size-md);
   }
 `;

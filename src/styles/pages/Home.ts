@@ -11,7 +11,7 @@ export const Container = styled.div`
 
   h1 {
     font-size: 54px;
-    color: ${(props) => props.theme.colors.primary};
+    color: var(--color-info-color-sign-info-dark);
     margin-top: 40px;
   }
 
@@ -20,4 +20,12 @@ export const Container = styled.div`
     font-size: 24px;
     line-height: 32px;
   }
+`;
+
+
+export const GradientBox = styled.div`
+  width: 100px;
+  height: 100px;
+  background: var(--gradient-neutral-color-neutral-medium);
+  margin: 0 auto;
 `;
