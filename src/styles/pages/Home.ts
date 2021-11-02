@@ -27,5 +27,7 @@ export const GradientBox = styled.div`
   width: 100px;
   height: 100px;
   background: var(--gradient-neutral-color-neutral-medium);
-  margin: 0 auto;
+  margin: 50px auto;
+  border-color: var(--color-info-color-sign-info-light);
+  border-width: thin;
 `;
